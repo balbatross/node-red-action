@@ -1,0 +1,22 @@
+{
+  "name": "node-red-action",
+  "version": "0.0.0",
+  "description": "Node for node-red to call an action chain programmatically",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "node-red": {
+    "action": "action.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balbatross/node-red-action.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balbatross/node-red-action/issues"
+  },
+  "homepage": "https://github.com/balbatross/node-red-action#readme"
+}
