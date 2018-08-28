@@ -1,18 +1,48 @@
-<script type="text/x-red" data-template-name="Action">
+
+<script type="text/x-red" data-template-name="ACTION">
     <div class="form-row">
-            <label for="node-input-name"<i class="icon-tag"></i> Name</label>
-            <input type="text" id="node-input-name" placeholder="Name" >
+        <label for="node-input-mssqlCN"><i class="icon-tag"></i> Connection</label>
+        <input type="text" id="node-input-mssqlCN">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row" style="margin-bottom: 0px;">
+        <label for="node-input-query" style="width: 100% !important;"><i class="fa fa-comments"></i> Query</label>
+        <input type="hidden" id="node-input-query" autofocus="autofocus">
+    </div>
+    <div class="form-row node-text-editor-row">
+        <div style="height: 250px;" class="node-text-editor" id="node-input-query-editor" ></div>
+    </div>
+    <div class="form-tips">Tip: You can uses the <i><a href="http://mustache.github.io/mustache.5.html" target="_new">mustache</a></i> format.</div>
+    <div class="form-row">
+        <label for="node-input-outField"><i class="fa fa-edit"></i> Result to</label>
+        msg.<input type="text" id="node-input-outField" placeholder="payload" style="width: 64%;">
     </div>
 </script>
 
+<script type="text/x-red" data-help-name="ACTION">
+    <p>Node for Node-RED to MS SQL</p>
+    <h4>Query</h4>
+    <p>You can uses the <i><a href="http://mustache.github.io/mustache.5.html" target="_new">mustache</a></i> format.</br>
+    Example: <i>SELECT * FROM Test WHERE Name = {{{payload.name}}}</i></p>
+
+    If no query is specified, the msg.payload value is used as the query.
+</script>
+
 <script type="text/javascript">
-    RED.nodes.registerType('Action', {
+    RED.nodes.registerType('ACTION',{
         category: 'input',
-        color: '#C0DEED',
-        default: {
-            name: {value: ""}
+        color:"#C0DEED",
+        defaults: {
+            name: {value:""},
         },
-        outputs: 1,
-        label: this.name,
+        inputs:0,
+        outputs:1,
+        icon: "db.png",
+        label: function() {
+            return this.name||"";
+        },
     });
 </script>

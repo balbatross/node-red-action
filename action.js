@@ -1,11 +1,9 @@
-module.exports = function(RED){
+module.exports = function(RED) {
+  	function mssql(config) {
+	    RED.nodes.createNode(this, config);
 
-    function action(config){
-        RED.nodes.createNode(this, config);
-        console.log(config);
+      var node = this;
 
-        RED.actions = {};
-        RED.actions[config.name] = (e) => console.log(e);
-    }   
-    RED.nodes.registerType('Action', action);
-}
+	}
+  	RED.nodes.registerType('ACTION', mssql);
+};
